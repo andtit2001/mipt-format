@@ -1,0 +1,54 @@
+\documentclass{article}
+
+\usepackage[a4paper]{geometry}
+
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage[useregional]{datetime2}
+
+\usepackage{inconsolata}
+
+\usepackage[colorlinks]{hyperref}
+
+\newcommand{\latinttfamily}{\fontencoding{T1}\ttfamily}
+\DeclareTextFontCommand{\ltexttt}{\latinttfamily}
+\makeatletter
+\renewcommand*{\verbatim@font}{\latinttfamily}
+\makeatother
+
+\title{Предложение 2: line-based tokens \\ (ревизия 0)}
+\author{Авторы: комитет Б05-831 МФТИ \\ Редактор: andtit2001}
+\date{\DTMdate{2019-11-07}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Назначение}
+Настоящее предложение определяет лексические соглашения (см.~документ D0, секция 3) для использования в формате MIPT.
+
+\section{Предлагаемые определения}
+\subsection{Строка}
+\begin{enumerate}
+	\item Название токена: \ltexttt{string}
+	\item Описание: произвольная последовательность символов в кодировке UTF-8 длины не меньше 2, в которой есть ровно один символ новой строки (newline character), расположенный в конце.
+	\item Регулярное выражение: \verb/[^\n]+\n/
+\end{enumerate}
+
+\subsection{Открывающий разделитель}
+\begin{enumerate}
+	\item Название токена: \ltexttt{open-delim}
+	\item Описание: левая фигурная скобка (left curly bracket), после которой идёт символ новой строки.
+	\item Регулярное выражение: \verb/{\n/
+\end{enumerate}
+
+\subsection{Закрывающий разделитель}
+\begin{enumerate}
+	\item Название токена: \ltexttt{close-delim}
+	\item Описание: правая фигурная скобка (right curly bracket), после которой идёт символ новой строки.
+	\item Регулярное выражение: \verb/}\n/
+\end{enumerate}
+\end{document}

@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\usepackage[a4paper]{geometry}
+
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage[useregional]{datetime2}
+
+\usepackage{soulutf8}
+\usepackage{listings}
+\usepackage{inconsolata}
+
+\usepackage[colorlinks]{hyperref}
+
+\newcommand{\latinttfamily}{\fontencoding{T1}\ttfamily}
+\DeclareTextFontCommand{\ltexttt}{\latinttfamily}
+\makeatletter
+\renewcommand*{\verbatim@font}{\latinttfamily}
+\makeatother
+
+\lstset{
+	basicstyle=\normalsize\fontencoding{T1}\ttfamily
+}
+
+\title{Формат хранения деревьев MIPT \\ (рабочий черновик)}
+\author{Авторы: \st{группа} комитет Б05-831 МФТИ \\ Редактор: andtit2001}
+\date{\DTMdate{2019-11-07}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\input{sections/scope.tex}
+\input{sections/format_name.tex}
+
+\pagebreak
+\input{sections/lex.tex}
+\pagebreak
+\input{sections/syntax.tex}
+\end{document}

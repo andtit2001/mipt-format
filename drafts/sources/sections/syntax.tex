@@ -1,0 +1,7 @@
+\section{Синтаксис}
+Синтаксис настоящего формата можно задать контекстно-свободной грамматикой, которая, в свою очередь, представлена в BNF\footnote{Форма Бэкуса--Наура (Backus--Naur form)}:
+\begin{lstlisting}
+<tree> ::= open-delim  <node>  close-delim
+<node> ::= string  open-delim  <node>  close-delim  <node>
+         | string
+\end{lstlisting}
